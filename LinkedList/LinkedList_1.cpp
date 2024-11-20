@@ -20,7 +20,8 @@ Node *DeleteTail(Node *head);
 int FindInLList(Node *head,int iKey);
 int FindInLList1(Node *head,int iKey);
 Node *ReverseLList(Node* head);
-
+void PrintMiddleNaive(Node* head);
+void PrintMiddleEfficient(Node* head);
 
 int main(void)
 {
@@ -44,12 +45,13 @@ int main(void)
 
 	PrintLList2(head);
 
-	head = ReverseLList(head);
+	//head = ReverseLList(head);
 
-	PrintLList2(head);
-
+	//PrintLList2(head);
+	PrintMiddleNaive(head);
+	PrintMiddleEfficient(head);
 	//int k = FindInLList1(head,20);
-	printf("elemente 20 has found on %d node\n",FindInLList1(head,20));
+	//printf("elemente 20 has found on %d node\n",FindInLList1(head,20));
 	return 0;
 }
 
@@ -246,4 +248,42 @@ Node *ReverseLList(Node* head)
 	}
 
 	return prev;
+}
+
+void PrintMiddleNaive(Node* head)
+{
+	if(head == NULL) 
+		return;
+
+	int iCount =0;
+	Node* curr;
+	for(curr = head ; curr!=NULL ; curr=curr->next)
+	{
+		iCount++;
+	}
+
+	curr = head;
+	for(int i=0 ; i<(iCount/2) ; i++)
+	{
+		curr = curr->next;
+	}
+
+	printf("Middle node %d\n",curr->iData);
+}
+
+void PrintMiddleEfficient(Node *head)
+{
+	if(head == NULL) 
+		return;
+
+	Node *slow = head;
+	Node *fast = head;
+
+	while(fast!=NULL && fast->next!=NULL)
+	{
+		slow = slow->next;
+		fast = fast->next->next;
+	}
+	printf("Middle node %d\n",slow->iData);
+
 }

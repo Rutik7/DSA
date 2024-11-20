@@ -16,8 +16,11 @@ Node *InsertBegin(Node *head,int iValue);
 Node *InsertEND(Node *head,int iValue);
 Node *InsertAtPosition(Node *head,int iPos,int iValue);
 Node *DeleteHead(Node *head);
+Node *DeleteTail(Node *head);
 int FindInLList(Node *head,int iKey);
 int FindInLList1(Node *head,int iKey);
+Node *ReverseLList(Node* head);
+
 
 int main(void)
 {
@@ -37,7 +40,11 @@ int main(void)
 	InsertAtPosition(head,3,8);
 	PrintLList2(head);
 
-	head = DeleteHead(head);
+	head = DeleteTail(head);
+
+	PrintLList2(head);
+
+	head = ReverseLList(head);
 
 	PrintLList2(head);
 
@@ -219,4 +226,24 @@ int FindInLList1(Node *head,int iKey)
 		else 
 			return(iRes+1);
 	}
+}
+
+/*this ReverseLList() function take O(N) time complxicity coz
+its visit all the node in one single loop
+
+space complixity is clearly O(1) constant for (curr,prev,next)*/
+Node *ReverseLList(Node* head)
+{
+	Node *curr = head;
+	Node *prev = NULL;
+
+	while(curr!=NULL)
+	{
+		Node *next = curr->next;
+		curr->next = prev;
+		prev = curr;
+		curr = next;
+	}
+
+	return prev;
 }

@@ -1,4 +1,4 @@
-﻿Build started 22-10-2024 9.47.48 PM.
+﻿Build started 20-11-2024 5.55.40 PM.
      1>Project "E:\DSA\LINKED LIST\LinkedList\LinkedList\LinkedList.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\LinkedList.unsuccessfulbuild" because "AlwaysCreate" was specified.
@@ -23,4 +23,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.78
+Time Elapsed 00:00:00.77

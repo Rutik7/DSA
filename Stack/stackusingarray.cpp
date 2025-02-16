@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-
+//rutik
 #define MAX 100
 //implementation of stack using array
 
